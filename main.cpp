@@ -3,10 +3,6 @@
 #include<fstream>
 #include <PDCurses-3.9/curses.h>
 
-
-#define ENTER ' /n'
-#define INTRO '/r'
-
 #include<stdio.h>
 #include<windows.h>
 
@@ -15,6 +11,85 @@
 
 
 using namespace std;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void op1(){
+
+        int ch, i = 0, width = 7;
+      WINDOW *z;
+      initscr();
+
+       z = newwin( 20, 80, 1, 1); // create a new window yf , xf, yi, xi
+       box( z, 0, 0 ); // establece bordes predeterminados para la ventana
+       mvwprintw(z, 19, 2, "%s", "^W Buscar y Reemplazar");
+       mvwprintw(z, 19, 28, "%s", "^C Reportes");
+       mvwprintw(z, 19, 43, "%s", "^G Guardar");
+
+
+   wrefresh( z ); // actualizar la pantalla del terminal
+
+
+    noecho(); // deshabilitar el eco de caracteres en la pantalla
+    keypad( z, TRUE ); // habilitar la entrada de teclado para la ventana.
+
+       // obtener la entrada
+    while(( ch = wgetch(z)) != 'q'){
+
+
+
+
+
+;
+              // use una variable para incrementar o disminuir el valor basado en la entrada.
+            switch( ch ) {
+                case KEY_UP:
+
+                            break;
+                case KEY_DOWN:
+
+                            break;
+
+
+                case 0xa:
+
+
+                break;
+            }
+
+
+
+  }
+
+    delwin( z );
+    refresh();
+    endwin();
+
+}
+
+
+
+
+
+
+
+
+
 
 int
 main() {
@@ -28,7 +103,7 @@ main() {
     w = newwin( 20, 80, 1, 1); // create a new window yf , xf, yi, xi
     box( w, 0, 0 ); // establece bordes predeterminados para la ventana
 
-// ahora imprima todos los elementos del menú y resalte el primero
+    // ahora imprima todos los elementos del menú y resalte el primero
     for( i=0; i<13; i++ ) {
         if( i == 8 )
             wattron( w, A_STANDOUT ); //  Destaca el primer ítem.
@@ -44,6 +119,9 @@ main() {
     noecho(); // deshabilitar el eco de caracteres en la pantalla
     keypad( w, TRUE ); // habilitar la entrada de teclado para la ventana.
     curs_set( 0 ); // Ocultar el cursor de pantalla predeterminado.
+
+
+
 
        // obtener la entrada
     while(( ch = wgetch(w)) != 'q'){
@@ -61,24 +139,90 @@ main() {
                             i++;
                             i = ( i>12 ) ? 8 : i;
                             break;
-                case 0x41:
-                            i++;
-                            i = ( i>12 ) ? 8 : i;
+                case 0xa:
+
+                     if( i == 9 ){ ////opcion 1 del menu
+
+
+                            int ch, i = 0, width = 7;
+                            WINDOW *z;
+                            initscr();
+
+                            z = newwin( 20, 80, 1, 1); // create a new window yf , xf, yi, xi
+                            box( z, 0, 0 ); // establece bordes predeterminados para la ventana
+                            mvwprintw(z, 19, 2, "%s", "^W Buscar y Reemplazar");
+                            mvwprintw(z, 19, 28, "%s", "^C Reportes");
+                            mvwprintw(z, 19, 43, "%s", "^G Guardar");
+
+
+                            wrefresh( z ); // actualizar la pantalla del terminal
+
+
+                            noecho(); // deshabilitar el eco de caracteres en la pantalla
+                            keypad( z, TRUE ); // habilitar la entrada de teclado para la ventana.
+
+                            // obtener la entrada
+                            while(( ch = wgetch(z)) != 'q'){
+
+                             // use una variable para incrementar o disminuir el valor basado en la entrada.
+                            switch( ch ) {
+                            case KEY_UP:
+
                             break;
-                case VK_RETURN:
-                            i++;
-                            i = ( i>12 ) ? 8 : i;
+                            case KEY_DOWN:
+
+                            break;
+
+
+                            case 0xa:
+
+
+                            break;
+                            }
+
+
+
+                            }
+
+                            delwin( z );
+                            endwin();
+
+                            box( w, 0, 0 ); // establece bordes predeterminados para la ventana
+                             wrefresh( w ); // actualizar la pantalla del terminal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     }
+
+
+
                             break;
                 default:
-
-                    initscr();			/* Start curses mode 		  */
-	                printw("Hello World !!!");	/* Print Hello World		  */
-	                printw("\nHas tecleado: %c\n", ch);
-
-	                refresh();			/* Print it on to the real screen */
-	                //getch();			/* Wait for user input */
-	                endwin();			/* End curses mode		  */
-
 
 
                     break;
@@ -86,12 +230,20 @@ main() {
 
 
             }
-            // ahora resalte el siguiente elemento en la lista.
-            wattron( w, A_STANDOUT );
 
-            sprintf(item, "%-7s",  list[i]);
+
+
+
+            // ahora resalte el siguiente elemento en la lista.
+           wattron( w, A_STANDOUT );
+
+          sprintf(item, "%-7s",  list[i]);
             mvwprintw( w, i+1, 2, "%s", item);
             wattroff( w, A_STANDOUT );
+
+
+
+
     }
 
     delwin( w );

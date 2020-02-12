@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1581376254 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
+1581489258 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
 	<iostream>
 	<string.h>
 	<fstream>
 	<PDCurses-3.9/curses.h>
+	<stdio.h>
 	<windows.h>
 
