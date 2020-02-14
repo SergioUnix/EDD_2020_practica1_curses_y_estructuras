@@ -1,9 +1,14 @@
 # depslib dependency file v1.0
-1581489258 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
+1581653713 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
 	<iostream>
 	<string.h>
 	<fstream>
 	<PDCurses-3.9/curses.h>
 	<stdio.h>
 	<windows.h>
+	"listadoble.h"
+
+1581655986 c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\listadoble.h
+	<string.h>
+	<fstream>
 
