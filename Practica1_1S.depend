@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1581653713 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
+1582002156 source:c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\main.cpp
 	<iostream>
 	<string.h>
 	<fstream>
@@ -7,8 +7,11 @@
 	<stdio.h>
 	<windows.h>
 	"listadoble.h"
+	"stack.h"
 
-1581655986 c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\listadoble.h
+1582004767 c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\listadoble.h
 	<string.h>
 	<fstream>
+
+1581662037 c:\users\admin\desktop\estructuras\1er semestre 2020\practica1_1s\stack.h
 

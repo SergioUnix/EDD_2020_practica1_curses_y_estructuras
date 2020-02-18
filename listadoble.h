@@ -36,7 +36,7 @@ class ListaDoble
 
     };
 
-    /////////////////////sigue la lista
+    ///////////////////////////////////////////////////////////////////////////sigue la lista
      public:
          ListaDoble()
          {
@@ -55,6 +55,8 @@ class ListaDoble
          void generar_txt();
          std::string get_element_at(int index);
 
+         bool existe_palabra(std::string a);
+
 
 
 
@@ -62,7 +64,6 @@ class ListaDoble
    int comparar(std::string a,std::string b) {
     int n1 = a.length();
     int n2 = b.length();
-    // declaring character arrayCubo <std::string> *cub;
 
     char char_a[n1 + 1];
     char char_b[n2 + 1];
@@ -311,6 +312,36 @@ archivo.close();
         system(sentencia2.c_str());
 
 
+}
+
+bool ListaDoble::existe_palabra(std::string a){
+
+    int n1 = a.length();
+
+    // declaring character array
+    char char_a[n1+1];
+    char char_b[this->size];
+    // copying the contents of the
+    // string to char array
+    strcpy(char_a, a.c_str());
+     std::string auxiliar;
+        Nodo *node = this->first;
+        int index=0;
+        while(node!=0){
+         auxiliar =node->getDato();
+         char buffer[1];
+         strcpy(buffer,auxiliar.c_str());
+         char_b[index]= buffer[0];
+         index++;
+         node=node->getNext();
+        }
+
+
+
+
+
+
+return false;
 }
 
 
