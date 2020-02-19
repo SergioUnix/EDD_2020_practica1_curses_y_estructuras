@@ -55,7 +55,7 @@ class ListaDoble
          void generar_txt();
          std::string get_element_at(int index);
 
-         bool existe_palabra(std::string a);
+         bool existe_palabra(std::string a, std::string nueva);
 
 
 
@@ -308,13 +308,21 @@ archivo.close();
 
         std::string sentencia="dot -Tpng listaDoble.txt -o listaDoble.png";
         std::string sentencia2="start listaDoble.png";
+        std::string salir="EXIT";
         system(sentencia.c_str());
         system(sentencia2.c_str());
+        system(salir.c_str());
 
 
-}
+};
 
-bool ListaDoble::existe_palabra(std::string a){
+bool ListaDoble::existe_palabra(std::string a, std:: string nueva){
+    bool result=false;
+    ListaDoble *ax= new ListaDoble();
+    std::string concatenar;
+    int posicion=0;
+
+    int varx;
 
     int n1 = a.length();
 
@@ -324,14 +332,50 @@ bool ListaDoble::existe_palabra(std::string a){
     // copying the contents of the
     // string to char array
     strcpy(char_a, a.c_str());
+
+    ////paso toda la lista doble a un arreglo de caracteres
      std::string auxiliar;
         Nodo *node = this->first;
         int index=0;
         while(node!=0){
+
+
          auxiliar =node->getDato();
-         char buffer[1];
-         strcpy(buffer,auxiliar.c_str());
-         char_b[index]= buffer[0];
+         //char buffer[1];
+         //strcpy(buffer,auxiliar.c_str());
+        // char_b[index]= buffer[0];
+
+
+                 //concatena para formar la palabra
+         if(node->getDato()!=" "|| index ==this->size){
+         concatenar=concatenar+ node->getDato();
+         posicion++;
+         }else{
+
+
+             //elimina la palabra
+         if(concatenar==a){
+        index =index -posicion;
+         result=true;
+         for(int t=0; t <posicion; t++ ){
+         remove_at(index);
+
+
+         }
+         if(node->getBefore()!= 0){
+            remove_at(index-1);
+         }
+
+
+         }
+
+             concatenar =""; posicion=0;}
+
+
+
+
+
+
          index++;
          node=node->getNext();
         }
@@ -339,9 +383,7 @@ bool ListaDoble::existe_palabra(std::string a){
 
 
 
-
-
-return false;
+return result;
 }
 
 
